@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { Pizza, PizzaSize } from "@/types/pizza";
 import { getPizzaImageUrl } from "@/lib/api";
 import { Button } from "@/components/ui/button";
+import { useCart } from "@/components/cart-context";
 import {
   DialogContent,
   DialogDescription,
@@ -38,6 +39,7 @@ export function PizzaDetailsDialog({ pizza }: { pizza: Pizza }) {
     (size?.price ?? 0) +
     (option?.price ?? 0) +
     toppings.reduce((sum, topping) => sum + topping.price, 0);
+  const { addItem } = useCart();
 
   return (
     <DialogContent
@@ -153,8 +155,9 @@ export function PizzaDetailsDialog({ pizza }: { pizza: Pizza }) {
         <Button
           size="lg"
           className="mt-2 w-full rounded-full font-semibold text-base"
+          onClick={() => addItem(totalPrice)}
         >
-          Add to cart for {totalPrice} ₽
+          Add to cart for {totalPrice}
         </Button>
       </div>
     </DialogContent>

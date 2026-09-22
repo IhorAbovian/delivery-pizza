@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import { SiteHeader } from "@/components/header";
 import { SiteFooter } from "@/components/footer";
 import "./globals.css";
+import { CartProvider } from "@/components/cart-context";
 
 const geistSans = Manrope({
   variable: "--font-geist-sans",
@@ -27,9 +28,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <SiteHeader />
-        {children}
-        <SiteFooter />
+        <CartProvider>
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+        </CartProvider>
       </body>
     </html>
   );
