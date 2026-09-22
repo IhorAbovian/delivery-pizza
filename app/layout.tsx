@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
+import { SiteHeader } from "@/components/header";
+import { SiteFooter } from "@/components/footer";
 import "./globals.css";
 
 const geistSans = Manrope({
@@ -24,7 +26,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${manrope.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <SiteHeader />
+        {children}
+        <SiteFooter />
+      </body>
     </html>
   );
 }
