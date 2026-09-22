@@ -10,7 +10,7 @@ export function PizzaCard({ pizza }: { pizza: Pizza }) {
 
   return (
     <Dialog>
-      <DialogTrigger className="group relative flex w-full flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white text-left transition-shadow hover:shadow-md">
+      <DialogTrigger className="group relative flex w-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white text-left transition-shadow hover:shadow-md">
         {pizza.isHit && (
           <Badge variant="destructive" className="absolute left-3 top-3 z-10">
             Hit

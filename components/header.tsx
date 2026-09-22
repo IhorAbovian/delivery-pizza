@@ -14,7 +14,7 @@ export function SiteHeader() {
       <div className="flex items-center justify-between gap-6">
         <Link
           href="/"
-          className="flex items-center gap-2 text-lg font-bold tracking-tight"
+          className="flex cursor-pointer items-center gap-2 text-lg font-bold tracking-tight"
         >
           <span aria-hidden>🍕</span>
           PIZZA
@@ -23,7 +23,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-4 text-sm text-neutral-600">
           <button
             type="button"
-            className="hidden items-center gap-1 hover:text-neutral-900 sm:flex"
+            className="hidden cursor-pointer items-center gap-1 hover:text-neutral-900 sm:flex"
           >
             Select delivery address
             <ChevronDown className="size-4" />
@@ -31,14 +31,14 @@ export function SiteHeader() {
           <button
             type="button"
             aria-label="Order history"
-            className="text-neutral-500 hover:text-neutral-900"
+            className="cursor-pointer text-neutral-500 hover:text-neutral-900"
           >
             <Clock className="size-5" />
           </button>
           <button
             type="button"
             aria-label="Account"
-            className="text-neutral-500 hover:text-neutral-900"
+            className="cursor-pointer text-neutral-500 hover:text-neutral-900"
           >
             <User className="size-5" />
           </button>
@@ -54,7 +54,11 @@ export function SiteHeader() {
             <Button
               key={category}
               variant={index === 0 ? "default" : "outline"}
-              className="rounded-full"
+              className={
+                index === 0
+                  ? "rounded-full border-transparent bg-black text-white hover:bg-black/80"
+                  : "rounded-full border-transparent bg-neutral-100 hover:bg-neutral-200"
+              }
               asChild
             >
               <a href={`/#${category}`}>{PIZZA_CATEGORY_LABELS[category]}</a>
