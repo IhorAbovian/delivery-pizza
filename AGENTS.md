@@ -2,7 +2,7 @@
 
 ## Overview
 
-Pizza delivery storefront (catalog browsing, currently no checkout/ordering flow yet). Next.js 15 App Router, React 19, TypeScript, Tailwind CSS v4, shadcn/ui (radix-ui based).
+Pizza delivery storefront (catalog browsing, currently no checkout/ordering flow yet). Next.js 16.3.5 App Router, React 19, TypeScript, Tailwind CSS v4, shadcn/ui (radix-ui based).
 
 ## Commands
 
