@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from "sonner";
 import type { Pizza, PizzaSize } from "@/types/pizza";
 import { getPizzaImageUrl } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/components/cart-context";
 import {
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogTitle,
@@ -152,13 +154,18 @@ export function PizzaDetailsDialog({ pizza }: { pizza: Pizza }) {
           </div>
         )}
 
-        <Button
-          size="lg"
-          className="mt-2 w-full rounded-full font-semibold text-base"
-          onClick={() => addItem(totalPrice)}
-        >
-          Add to cart for {totalPrice}
-        </Button>
+        <DialogClose asChild>
+          <Button
+            size="lg"
+            className="mt-2 w-full rounded-full font-semibold text-base"
+            onClick={() => {
+              addItem(totalPrice);
+              toast.success(`${pizza.name} added to cart`);
+            }}
+          >
+            Add to cart for {totalPrice}
+          </Button>
+        </DialogClose>
       </div>
     </DialogContent>
   );
