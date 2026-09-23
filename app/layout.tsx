@@ -4,11 +4,7 @@ import { SiteHeader } from "@/components/header";
 import { SiteFooter } from "@/components/footer";
 import "./globals.css";
 import { CartProvider } from "@/components/cart-context";
-
-const geistSans = Manrope({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import { Toaster } from "@/components/ui/sonner";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -25,7 +21,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${manrope.variable} h-full antialiased`}
+      className={`${manrope.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>
@@ -41,6 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
           <SiteFooter />
         </CartProvider>
+        <Toaster />
       </body>
     </html>
   );
