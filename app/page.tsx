@@ -20,9 +20,13 @@ export default async function Home() {
             <h2 className="mb-6 text-2xl font-semibold">
               {PIZZA_CATEGORY_LABELS[category]}
             </h2>
-            <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
-              {items.map((pizza) => (
-                <PizzaCard key={pizza._id} pizza={pizza} />
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-5 lg:grid-cols-4 lg:gap-8">
+              {items.map((pizza, index) => (
+                <PizzaCard
+                  key={pizza._id}
+                  pizza={pizza}
+                  featured={category === "pizza" && index === 0}
+                />
               ))}
             </div>
           </section>
